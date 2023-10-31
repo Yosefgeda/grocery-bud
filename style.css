@@ -86,3 +86,7 @@ body {
     color: rgb(252, 29, 29);
     background-color: transparent;
 }
+
+.alert-danger {
+    color: red;
+}
