@@ -1,0 +1,88 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    list-style: none;
+}
+
+body {
+    background-color: aliceblue;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.section-center {
+    margin-top: 10%;
+    background-color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    width: 70%;
+    min-height: 200px;
+}
+
+.section-center form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+.form-control {
+    display: flex;
+}
+
+#grocery {
+    border: none;
+    background-color: rgb(218, 221, 220);
+    padding: 2%;
+    width: 300px;
+    height: 30px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    text-transform: capitalize;
+}
+
+.submit-btn {
+    width: 20%;
+    border: none;
+    background-color: rgb(54, 216, 228);
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.grocery-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 200px;
+}
+
+.grocery-item {
+    display: flex;
+    justify-content: space-between;
+}
+
+.edit-btn, .delete-btn {
+    border: none;
+}
+
+.edit-btn, .delete-btn:hover {
+    cursor: pointer;
+}
+
+.fa-pen-to-square {
+    color: green;
+}
+
+.fa-trash {
+    color: red;
+}
+
+.clear-btn {
+    border: none;
+    color: rgb(252, 29, 29);
+    background-color: transparent;
+}
