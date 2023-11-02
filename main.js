@@ -66,7 +66,6 @@ const addItem = (e) => {
     } else {
         displaAlert('please enter an item', 'danger');
     }
-    
 }
 
 const deleteItem = (e) => {
@@ -92,6 +91,8 @@ const clearItems = () => {
     if(items.length > 0) {
         items.forEach(item => list.removeChild(item));
     };
+    setBackToDefault();
+    localStorage.removeItem('list');
 }
 
 const setBackToDefault = () => {
@@ -110,17 +111,21 @@ const addToLocalStorage = (id, value) => {
 
 const removeFromLocalStorage = (id) => {
     let items = getLocalStorage();
-    items = items.filter(function (item) {
-        if (item.id !== id) {
-            return item;
-        }
-    }        
-    );
+    items = items.filter((itm) => {
+        return itm.id !== id;
+    });
     localStorage.setItem('list', JSON.stringify(items));
 }
 
 const editLocalStorage = (id, value) => {
-
+    let items = getLocalStorage();
+    items = items.map((itm) => {
+        if(itm.id === id) {
+            itm.value = value;
+        }
+        return itm;
+    });
+    localStorage.setItem('list', JSON.stringify(items));
 }
 
 const getLocalStorage = () => {
