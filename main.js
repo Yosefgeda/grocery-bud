@@ -21,6 +21,8 @@ const displaAlert = (alertMsg, action) => {
     }, 2000);
 }
 
+
+
 const addItem = (e) => {
     e.preventDefault();
     let id = Math.floor(Math.random()*10000);
@@ -50,10 +52,11 @@ const addItem = (e) => {
 
        deleteBtn.addEventListener('click', deleteItem);
        editBtn.addEventListener('click', editItem);
+       displaAlert('Item added successfuly', 'success');
 
         addToLocalStorage(id, value);
         setBackToDefault();
-        displaAlert('Item added successfuly', 'success');
+        
         
     } else if( value && editFlag) {
         editElement.innerHTML = value;
@@ -107,11 +110,13 @@ const addToLocalStorage = (id, value) => {
 
 const removeFromLocalStorage = (id) => {
     let items = getLocalStorage();
-    let item = items.filter(item => {
-        return item.id !== id;
-    });
-    localStorage.setItem('list', JSON.stringify(item));
-    console.log(item, items)
+    items = items.filter(function (item) {
+        if (item.id !== id) {
+            return item;
+        }
+    }        
+    );
+    localStorage.setItem('list', JSON.stringify(items));
 }
 
 const editLocalStorage = (id, value) => {
@@ -119,7 +124,9 @@ const editLocalStorage = (id, value) => {
 }
 
 const getLocalStorage = () => {
-    return localStorage.getItem('list') ? JSON.parse(localStorage.getItem('list')) : [];
+    return localStorage.getItem('list') 
+    ? JSON.parse(localStorage.getItem('list')) 
+    : [];
 }
 
 clearBtn.addEventListener('click', clearItems);
